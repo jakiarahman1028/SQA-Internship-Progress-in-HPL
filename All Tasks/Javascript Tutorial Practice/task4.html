@@ -1,0 +1,37 @@
+<!--A program that calculates addition, subtraction, 
+multiplication, division and remainder of 2 numbers-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice</title>
+</head>
+<body>
+
+  <script>
+
+// using parseInt here to convert the prompts input into number because prompts input type is string
+ var num1 = parseInt(prompt("Enter First Number: "));
+ var num2 = parseInt(prompt("Enter Second Number:")); 
+ 
+//math
+ var sum = num1 + num2;
+ var sub = num1 - num2;
+ var mul = num1 * num2;
+ var mod = num1 % num2;
+ var div = num1 / num2;
+
+ //print results
+ document.write("The Addition of Two Numbers = " + sum + "</br>");
+ document.write("The Subtraction of Two Numbers = " + sub + "</br>");
+ document.write("The Multiplication of Two Numbers = " + mul + "</br>");
+ document.write("The Remainder of Two Numbers = " + mod + "</br>");
+ document.write("The Division of Two Numbers = " + div + "</br>");
+
+  </script>
+
+  
+</body>
+</html>
