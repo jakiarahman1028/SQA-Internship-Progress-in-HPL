@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice</title>
+</head>
+<body>
+
+  <script>
+    
+// compare and return highest number
+
+function highestNumber(number){
+  let max = [0];
+  
+  for(let n = 1; n<number.length; n = n+1){
+    if (max< number[n]){
+      max = number[n];
+    }
+  }
+  return max;
+}
+
+let number = [40,80,30,60,90,50];
+let maxNumber = highestNumber(number);
+
+document.write(maxNumber);
+
+  </script>
+
+  
+</body>
+</html>
