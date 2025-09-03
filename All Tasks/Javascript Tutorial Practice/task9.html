@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice</title>
+</head>
+<body>
+
+  <script>
+
+// declare function
+    function highestScorer(students){
+
+      // suppose first student is highest scorer
+
+      let maxScore = students[0][1]; // take score
+      let topStudent = students[0][0]; //take top students name
+
+      // loop through all students and compare 
+
+      for(i = 1; i<students.length; i++){
+
+        let name = students[i][0];
+        let score = students[i][1];
+
+        if (score>maxScore){
+          maxScore= score;
+          topStudent = name;
+        }
+
+      }
+
+    return topStudent;
+    }
+    
+let students = [
+  ["Jakia", 85],
+  ["Rahman", 92],
+  ["Hasan", 78],
+  ["Mahi", 95],
+  ["Tania", 88]
+];
+
+let result = highestScorer(students);
+document.write(result);
+  </script>
+
+</body>
+</html>
