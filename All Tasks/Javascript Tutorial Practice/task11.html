@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice</title>
+</head>
+<body>
+
+  <h2>Sign Up Form</h2>
+
+  <form id="signUp">
+
+    <label>Name: </label>
+    <input type="text" id="name"><br><br>
+
+    <label>Email: </label>
+    <input type="text" id="email"><br><br>
+
+    <label>Password: </label>
+    <input type="password" id="password"><br><br>
+
+    <label>Confirm Password: </label>
+    <input type="password" id="confirmPassword"><br><br>
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+  <p id="error" style="color:red;"></p>
+  <p id="success" style="color:green;"></p>
+
+  <script>
+    
+    //capture form submit
+
+    const form = document.getElementById("signUp");
+    form.addEventListener("submit", function(event){
+
+      event.preventDefault();
+
+      document.getElementById("error").innerText = "";
+      document.getElementById("success").innerText = "";
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(name === ""){
+        document.getElementById("error").innerText = "Name is required";
+        return;
+      }
+
+    else if (!email.includes("@") || !email.includes(".")) {
+       document.getElementById("error").innerText = "Invalid email address";
+        return;
+      }
+
+    else if (password.length < 6) {
+      document.getElementById("error").innerText = "Password must be at least 6 characters";
+        return;
+      }
+
+    else if (password !== confirmPassword) {
+      document.getElementById("error").innerText = "Passwords do not match";
+         return;
+      }
+
+    else {
+      document.getElementById("success").innerText = "Registration successful!";
+    }
+
+    })
+
+  </script>
+
+</body>
+</html>
