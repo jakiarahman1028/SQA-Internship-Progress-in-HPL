@@ -12,3 +12,4 @@ document.getElementsByTagName("h1")[0].innerHTML = "HI" ;
 document.getElementsByClassName("heading3")[2].innerHTML = "HELLO" ;
 
 document.getElementsByTagName("p")[3].innerHTML = "WORLD";
+
