@@ -41,10 +41,16 @@ button:hover {
   background-color: #45a049;
 }
 
-#error {
+.error-msg {
   color: red;
+  font-size: 0.9em;
+  margin-top: 3px;
+  display: block;
 }
 
-#success {
+.success-msg {
   color: green;
+  font-size: 0.9em;
+  margin-top: 3px;
+  display: block;
 }

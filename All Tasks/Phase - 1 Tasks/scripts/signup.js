@@ -1,6 +1,12 @@
 // Get the sign-up form element by its ID
 const form = document.getElementById("signUp");
 
+// When the page loads, clear the form fields
+window.addEventListener("load", function() {
+  document.getElementById("signUp").reset();
+});
+
+
 // Add an event listener to handle form submission
 form.addEventListener("submit", function(event) {
   
@@ -8,8 +14,11 @@ form.addEventListener("submit", function(event) {
   event.preventDefault();
 
   // Clear any previous error or success messages
-  document.getElementById("error").innerText = "";
-  document.getElementById("success").innerText = "";
+  document.getElementById("nameError").innerText = "";
+  document.getElementById("emailError").innerText = "";
+  document.getElementById("passwordError").innerText = "";
+  document.getElementById("confirmPasswordError").innerText = "";
+  document.getElementById("regSuccess").innerText = "";
 
   // Get the values entered by the user in the form fields
   let name = document.getElementById("name").value;
@@ -19,25 +28,25 @@ form.addEventListener("submit", function(event) {
 
   // Validation: Check if the name field is empty
   if (name === "") {
-    document.getElementById("error").innerText = "Name is required";
+    document.getElementById("nameError").innerText = "Name is required";
     return; // Stop further execution
   }
 
   // Validation: Check if the email format contains "@" and "."
   else if (!email.includes("@") || !email.includes(".")) {
-    document.getElementById("error").innerText = "Invalid email address";
+    document.getElementById("emailError").innerText = "Invalid email address";
     return; // Stop further execution
   }
 
   // Validation: Check if the password is at least 6 characters
   else if (password.length < 6) {
-    document.getElementById("error").innerText = "Password must be at least 6 characters";
+    document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
     return; // Stop further execution
   }
 
   // Validation: Check if the password and confirm password match
   else if (password !== confirmPassword) {
-    document.getElementById("error").innerText = "Passwords do not match";
+    document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
     return; // Stop further execution
   }
 
@@ -55,12 +64,11 @@ form.addEventListener("submit", function(event) {
   // Save updated users array back to localStorage
   localStorage.setItem("users", JSON.stringify(users)); //JSON.stringify = Object to String
 
-  document.getElementById("success").innerText = "Registration successful!";
+  document.getElementById("regSuccess").innerText = "Registration successful!";
     
   //Reset the form
   form.reset();
 
-//users = JSON.parse(localStorage.getItem("users"));
 console.log(users);
 
   }
