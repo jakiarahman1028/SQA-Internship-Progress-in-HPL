@@ -1,61 +1,86 @@
 const addBtn = document.getElementById("addBtn");
-
 const tableBody = document.getElementById("empTable").getElementsByTagName("tbody")[0];
-
-const successMsg = document.getElementById("successMsg");
+const successMsg = document.getElementById("successEmp"); // fixed ID to match your HTML
 
 let employees = JSON.parse(localStorage.getItem("employees")) || [];
 
-addBtn.addEventListener("click",function()
-{
+// Load existing employees on page load
+employees.forEach((emp, index) => addEmployeeToTable(emp, index));
 
-let name = document.getElementById("empName").value;
-let role = document.getElementById("empRole").value;
-let dept = document.getElementById("empDept").value;
-let phone = document.getElementById("empPhone").value;
+addBtn.addEventListener("click", function(event) {
+  event.preventDefault();
 
-if(name === ""){
-  document.getElementById("errorName").innerText = "Employee Name is Required";
-  return;
-}
+  let name = document.getElementById("empName").value.trim();
+  let role = document.getElementById("empRole").value.trim();
+  let dept = document.getElementById("empDept").value.trim();
+  let phone = document.getElementById("empPhone").value.trim();
 
-else if(role === ""){
-  document.getElementById("errorRole").innerText = "Employee Role is Required";
-  return;
-}
+  if (name === "") {
+    document.getElementById("errorName").innerText = "Employee Name is Required";
+    return;
+  }
+  if (role === "") {
+    document.getElementById("errorRole").innerText = "Employee Role is Required";
+    return;
+  }
+  if (dept === "") {
+    document.getElementById("errorDept").innerText = "Employee Department is Required";
+    return;
+  }
+  if (phone === "") {
+    document.getElementById("errorPhone").innerText = "Employee Phone Number is Required";
+    return;
+  }
 
-else if(dept === ""){
-  document.getElementById("errorDept").innerText = "Employee Department is Required";
-  return;
-}
+  let newEmp = { name, role, dept, phone };
 
-else if(phone === ""){
-  document.getElementById("errorPhone").innerText = "Employee Phone Number is Required";
-  return;
-}
+  employees.push(newEmp);
+  localStorage.setItem("employees", JSON.stringify(employees));
 
-let newEmp = {name, role, dept, phone};
+  addEmployeeToTable(newEmp, employees.length - 1);
 
-employees.push(newEmp);
+  // reset inputs
+  document.getElementById("empName").value = "";
+  document.getElementById("empRole").value = "";
+  document.getElementById("empDept").value = "";
+  document.getElementById("empPhone").value = "";
 
-localStorage.setItem("employees", JSON.stringify(employees));
+  // clear errors
+  document.getElementById("errorName").innerText = "";
+  document.getElementById("errorRole").innerText = "";
+  document.getElementById("errorDept").innerText = "";
+  document.getElementById("errorPhone").innerText = "";
 
-addEmployeeToTable(newEmp);
-
-document.getElementById("empName").value ="";
-document.getElementById("empRole").value = "";
-document.getElementById("empDept").value = "";
-document.getElementById("empPhone").value = "";
-
-
+  // success message
+  successMsg.innerText = "Registration successful!";
+  setTimeout(() => successMsg.innerText = "", 3000);
 });
 
 // Function to add an employee row to the table
-function addEmployeeToTable(emp){
-  let row = tableBody.insertRow();       
-  row.insertCell(0).innerText = emp.name;  // Add employee name to first cell
-  row.insertCell(1).innerText = emp.role;  // Add employee role to second cell
-  row.insertCell(2).innerText = emp.dept;  // Add employee department to third cell
-  row.insertCell(3).innerText = emp.phone; // Add employee phone to fourth cell
+function addEmployeeToTable(emp, index) {
+  let row = tableBody.insertRow();
+  row.insertCell(0).innerText = emp.name;
+  row.insertCell(1).innerText = emp.role;
+  row.insertCell(2).innerText = emp.dept;
+  row.insertCell(3).innerText = emp.phone;
+
+// Add delete button
+let deleteCell = row.insertCell(4);
+let delBtn = document.createElement("button");
+delBtn.innerText = "Delete";
+delBtn.classList.add("delete-btn"); // Add a class for CSS
+delBtn.onclick = function () {
+  deleteEmployee(index);
+};
+deleteCell.appendChild(delBtn);
 }
 
+// Function to delete employee (GLOBAL, not inside addEmployeeToTable)
+function deleteEmployee(index) {
+  employees.splice(index, 1);
+  localStorage.setItem("employees", JSON.stringify(employees));
+
+  // refresh table
+  tableBody.innerHTML = "";
+  employees.forEach((emp, i) => addEmployeeToTable(emp, i));
+}
