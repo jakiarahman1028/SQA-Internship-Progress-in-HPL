@@ -65,10 +65,10 @@ th {
 
 /* Delete button */
 .delete-btn {
-  background-color: #ff4d4d;  /* red background */
-  color: white;               /* white text */
+  background-color: #ff4d4d;  /* background color */
+  color: white;               /* text color */
   border: none;               /* remove border */
-  padding: 5px 10px;          /* spacing inside button */
+  padding: 5px 10px;          /* space inside button */
   border-radius: 5px;         /* rounded corners */
   cursor: pointer;            /* pointer on hover */
   font-weight: bold;

@@ -1,12 +1,6 @@
 // Get the sign-up form element by its ID
 const form = document.getElementById("signUp");
 
-// When the page loads, clear the form fields
-window.addEventListener("load", function() {
-  document.getElementById("signUp").reset();
-});
-
-
 // Add an event listener to handle form submission
 form.addEventListener("submit", function(event) {
   

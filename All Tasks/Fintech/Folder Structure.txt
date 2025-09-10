@@ -1,0 +1,49 @@
+fintech-dashboard/
+│
+├─ index.html               # Main Finance Dashboard (Expenses, Revenue, Budgets)
+├─ employees.html           # Employee Management page
+├─ login.html               # Login / Auth page
+│
+├─ css/
+│   ├─ variables.css        # Colors, fonts, spacing, global variables
+│   ├─ main.css             # Base styles (layout, typography)
+│   ├─ dashboard.css        # Finance dashboard-specific styles
+│   ├─ tables.css           # Tables for transactions & employees
+│   ├─ modals.css           # Styles for all modals
+│   └─ forms.css            # Form styling and validation messages
+│
+├─ js/
+│   ├─ app.js               # Main entry point, wires all modules together
+│   │
+│   ├─ finance/
+│   │   ├─ transactions.js  # CRUD for expenses and revenues
+│   │   ├─ budgets.js       # Budget calculations and updates
+│   │   └─ ui.js            # Finance-specific UI helpers (cards, alerts, filters)
+│   │
+│   ├─ employees/
+│   │   ├─ employees.js     # CRUD for employee management
+│   │   └─ ui.js            # Employee UI helpers (tables, modals)
+│   │
+│   └─ auth/
+│       └─ auth.js          # Login, logout, session management
+│
+├─ assets/
+│   ├─ images/              # Logos, icons
+│   └─ fonts/               # Custom fonts
+│
+├─ charts/                  # Optional: Chart.js or ApexCharts setup
+│   └─ chart-setup.js
+│
+├─ data/                    # Optional: JSON for mock/demo data
+│   ├─ employees.json
+│   └─ transactions.json
+│
+├─ components/              # Optional: reusable HTML snippets
+│   ├─ header.html
+│   ├─ sidebar.html
+│   ├─ footer.html
+│   ├─ cards.html           # Dashboard summary cards
+│   └─ modals.html          # Transaction and employee modals
+│
+├─ README.md
+└─ .gitignore
