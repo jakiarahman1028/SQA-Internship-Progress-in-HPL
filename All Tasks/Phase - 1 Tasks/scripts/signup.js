@@ -13,6 +13,7 @@ form.addEventListener("submit", function(event) {
   document.getElementById("passwordError").innerText = "";
   document.getElementById("confirmPasswordError").innerText = "";
   document.getElementById("regSuccess").innerText = "";
+  
 
   // Get the values entered by the user in the form fields
   let name = document.getElementById("name").value;

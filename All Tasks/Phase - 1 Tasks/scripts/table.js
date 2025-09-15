@@ -1,24 +1,23 @@
-const addBtn = document.getElementById("addBtn");  
+const addBtn = document.getElementById("addBtn");
 // "Add Employee" button
 
-const tableBody = document.getElementById("empTable").getElementsByTagName("tbody")[0];  
+const tableBody = document
+  .getElementById("empTable")
+  .getElementsByTagName("tbody")[0];
 // <tbody> of the employee table where new rows will be added
 
-const successMsg = document.getElementById("successEmp");  
+const successMsg = document.getElementById("successEmp");
 // <div> or <span> to show success messages after adding an employee
-
 
 // Load previously saved employees from localStorage
 // If there are none, start with an empty list
 let employees = JSON.parse(localStorage.getItem("employees")) || [];
 
-
 // When the page loads, immediately display all stored employees in the table
 employees.forEach((emp, index) => addEmployeeToTable(emp, index));
 
-
 // ADD NEW EMPLOYEE
-addBtn.addEventListener("click", function(event) {
+addBtn.addEventListener("click", function (event) {
   event.preventDefault(); // Prevents the default behavior - refreshing the page when the button is clicked
 
   // Collect values from the input fields
@@ -30,19 +29,23 @@ addBtn.addEventListener("click", function(event) {
   // Input Validations
   // Check if each field is filled in; if not, show an error and stop here
   if (name === "") {
-    document.getElementById("errorName").innerText = "Employee Name is Required";
+    document.getElementById("errorName").innerText =
+      "Employee Name is Required";
     return;
   }
   if (role === "") {
-    document.getElementById("errorRole").innerText = "Employee Role is Required";
+    document.getElementById("errorRole").innerText =
+      "Employee Role is Required";
     return;
   }
   if (dept === "") {
-    document.getElementById("errorDept").innerText = "Employee Department is Required";
+    document.getElementById("errorDept").innerText =
+      "Employee Department is Required";
     return;
   }
   if (phone === "") {
-    document.getElementById("errorPhone").innerText = "Employee Phone Number is Required";
+    document.getElementById("errorPhone").innerText =
+      "Employee Phone Number is Required";
     return;
   }
 
@@ -56,31 +59,30 @@ addBtn.addEventListener("click", function(event) {
   localStorage.setItem("employees", JSON.stringify(employees)); // save employees to localstorage
 
   // Add the new employee to the visible table immediately
-  addEmployeeToTable(newEmp, employees.length - 1); 
+  addEmployeeToTable(newEmp, employees.length - 1);
 
-  // Reset input fields for the next entry 
+  // Reset input fields for the next entry
   document.getElementById("empName").value = "";
   document.getElementById("empRole").value = "";
   document.getElementById("empDept").value = "";
   document.getElementById("empPhone").value = "";
 
-  // Clear error messages after successful entry 
+  // Clear error messages after successful entry
   document.getElementById("errorName").innerText = "";
   document.getElementById("errorRole").innerText = "";
   document.getElementById("errorDept").innerText = "";
   document.getElementById("errorPhone").innerText = "";
 
-  // Show success message for 3 seconds 
+  // Show success message for 3 seconds
   successMsg.innerText = "Registration successful!";
-  setTimeout(() => successMsg.innerText = "", 3000);
+  setTimeout(() => (successMsg.innerText = ""), 3000);
 });
 
-
-// DISPLAY EMPLOYEE IN TABLE 
+// DISPLAY EMPLOYEE IN TABLE
 
 // Function to add one employee row to the table
 function addEmployeeToTable(emp, index) {
-  let row = tableBody.insertRow();   // Create a new row
+  let row = tableBody.insertRow(); // Create a new row
 
   // Insert the employee data into the row cells
   row.insertCell(0).innerText = emp.name;
@@ -88,7 +90,7 @@ function addEmployeeToTable(emp, index) {
   row.insertCell(2).innerText = emp.dept;
   row.insertCell(3).innerText = emp.phone;
 
-  // Add a Delete button for each row 
+  // Add a Delete button for each row
   let deleteCell = row.insertCell(4);
   let delBtn = document.createElement("button");
   delBtn.innerText = "Delete";
@@ -98,7 +100,6 @@ function addEmployeeToTable(emp, index) {
   };
   deleteCell.appendChild(delBtn);
 }
-
 
 // DELETE EMPLOYEE
 

@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="/css/signup.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/signup.css" />
     <title>Sign Up</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <h2>Sign Up Form</h2>
 
+    <form id="signUp">
+      <label>Name: </label>
+      <input type="text" id="name" />
+      <span class="error-msg" id="nameError"></span><br />
 
-  <h2>Sign Up Form</h2>
+      <label>Email: </label>
+      <input type="text" id="email" />
+      <span class="error-msg" id="emailError"></span><br />
 
-  <form id="signUp">
+      <label>Password: </label>
+      <input type="password" id="password" />
+      <span class="error-msg" id="passwordError"></span><br />
 
-    <label>Name: </label>
-    <input type="text" id="name">
-    <span class="error-msg" id="nameError"></span><br>
+      <label>Confirm Password: </label>
+      <input type="password" id="confirmPassword" />
+      <span class="error-msg" id="confirmPasswordError"></span><br />
 
-    <label>Email: </label>
-    <input type="text" id="email">
-    <span class="error-msg" id="emailError"></span><br>
+      <button type="submit">Submit</button>
+      <span class="success-msg" id="regSuccess"></span>
+    </form>
 
-    <label>Password: </label>
-    <input type="password" id="password">
-    <span class="error-msg" id="passwordError"></span><br>
-
-    <label>Confirm Password: </label>
-    <input type="password" id="confirmPassword">
-    <span class="error-msg" id="confirmPasswordError"></span><br>
-
-    <button type="submit">Submit</button>
-    <span class="success-msg" id="regSuccess"></span>
-
-  </form>
-
-  <script src="/scripts/signup.js"></script>
-
-
-</body>
+    <script src="/scripts/signup.js"></script>
+  </body>
 </html>
