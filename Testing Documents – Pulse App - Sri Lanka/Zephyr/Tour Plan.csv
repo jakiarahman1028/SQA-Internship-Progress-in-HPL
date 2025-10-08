@@ -1,0 +1,39 @@
+TC ID,Test Case Description,Test Data,Precondition,Steps,Expected Result,Actual Result,Severity,Status in Current Version,Remarks
+TC-TP-001,Verify successful Tour Plan creation,Session: Morning Location: Head Quarter Sub-Market: MATARA,MR logged in,"1. Select Date 
+2. Click “+” 
+3. Select Session 
+4. Location 
+5. Submit",Plan saved to Pending List,New Tour Plan saved,High,Pass,
+TC-TP-002,Verify Tour Plan is editable until Supervisor approval,Tour Plans in Pending List,"MR logged in, Tour Plan not yet approved","1. Open created Tour Plan 
+2. Edit details (Submarket, Session) 
+3. Save changes",Tour Plan updated successfully and remains in Pending until approval,Tour Plan updated successfully and remains in Pending until approval,High,Pass,
+TC-TP-003,Verify Tour Plan cannot be edited after Supervisor approval,Approved Tour Plan exists,Tour Plan approved by Supervisor,"1. Open approved Tour Plan 
+2. Try to edit details",Edit option disabled,No edit option,High,Pass,
+TC-TP-004,Verify changing session allows editing and resubmission,Tour Plans in Pending List,"MR logged in, Tour Plan not yet approved","1. Open Tour Plan 
+2. Change session (Morning ? Evening) 
+3. Save changes 
+4. Submit Tour Plan",Tour Plan updated with new exceptional session and submitted for approval,"Changing from regular session to exceptional session does not allow resubmission Error shown: ""An error occurred while tour plan entry""",High,Fail,
+TC-TP-005,Verify adding Submarket in Optional Meetings allows resubmission,Tour Plans in Pending List,MR logged in,"1. Open Tour Plan 
+2. Change session (Morning ? Meeting) 
+3. Add Submarket 
+4. Save changes 
+5. Submit Tour Plan",Tour Plan successfully submitted with Optional Meeting details,"Error shown: ""An error occurred while tour plan entry""",High,Fail,
+TC-TP-006,Verify updating exception option in Tour Plan,"Tour Plans in Pending List Session - None, Location - Other, Exception - Training",MR logged in,"1. Open Tour Plan 
+2. Change Exception (Half-day leave ? Meeting) 
+3. Save changes 
+4. Submit Tour Plan",Tour Plan successfully submitted with Optional Meeting update,"Shows ""Tour Plan Submitted Successfully"" but Tour Plan list does not update with new changes",High,Fail,Happens only when choosing any of the exception options; other sessions work correctly
+TC-TP-007,Verify duplicate Submarket selection in Optional Meetings is not allowed,Tour Plan with one Submarket already added,MR logged in,"1. Open Tour Plan 
+2. Try adding the same Submarket again under Optional Meetings",System shows error “Submarket already selected”,System shows error “Submarket already selected”,High,Pass,
+TC-TP-008,Verify exception tags change accordingly upon edit,Tour Plan created,MR logged in,"1. Open Tour Plan 
+2. Change Exception (Half-day leave ? Regular Session), Change Submarket 
+3. Save changes 
+4. Submit Tour Plan",Exception tags should update according to changes,Exception tags do not change after edit; old tags remain,High,Fail,System not updating exception tags upon edit
+TC-TP-009,Verify Tour Plan submission without mandatory fields (Submarket/Session),Missing data,MR logged in,"1. Create Tour Plan without selecting Submarket 
+2. Tap Submit","Error message displayed ""Please Select Submarket""","Error message displayed ""Please Select Submarket""",High,Pass,
+TC-TP-010,Verify submitted Tour Plan moves to Pending List for approval,Complete Tour Plan filled,MR logged in,"1. Create Tour Plan with valid Submarket, Session 
+2. Tap Submit 
+3. Check Pending List",Tour Plan appears in Pending List,Tour Plan appears in Pending List,High,Pass,
+TC-TP-011,Verify Tour Plan calendar view displays all sessions correctly,Tour Plan created with Morning & Evening sessions,MIO/SMIO logged in,"1. Open Tour Plan calendar view 
+2. Navigate through dates",All plans are displayed correctly on calendar,All plans are displayed correctly on calendar,Medium,Pass,
+TC-TP-012,Verify Tour Plan can be created for future dates,Valid future date selected,MR logged in,"1. Create Tour Plan with date 
+2. Submit",Tour Plan successfully created and submitted,Tour Plan successfully created and submitted,Medium,Pass,

@@ -1,81 +1,254 @@
+/* Global Styles */
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #ebdada;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  background: linear-gradient(#e9c5da, #e3eeff); /* soft pastel gradient */
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-/* Input fields */
-input {
-  margin: 5px 10px 5px 0;
-  padding: 6px;
-  width: 180px;
-  border: 1px solid #a56868;
-  border-radius: 4px;
-  box-sizing: border-box;
+/* Glass effect container */
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 25px 30px;
+  width: 90%;
+  max-width: 950px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(32px);
 }
 
-/* Button */
+/* Headings */
+h2,
+h3 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+}
+
+/*Form Styles*/
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+/* Input fields */
+input,
+select {
+  padding: 8px 12px;
+  width: 220px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 6px rgba(108, 99, 255, 0.5);
+}
+
+/*Placeholder*/
+::placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+/* Buttons*/
 button {
-  padding: 6px 12px;
-  background-color: #4caf50;
+  padding: 8px 16px;
+  background: #6c63ff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 5px;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 button:hover {
-  background-color: #45a049;
+  background: #574fcf;
+  transform: translateY(-2px);
 }
 
-/* Error message */
-span.errorMsg {
-  color: red;
-  font-size: 0.85em;
-  display: block;
-  margin-bottom: 5px;
-}
-
-/* Success message */
-span.successMsg {
-  color: green;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-/* Table */
+/*Table Style */
 table {
-  margin-top: 20px;
-  border-collapse: collapse;
   width: 100%;
-  background-color: #fff;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 th,
 td {
-  border: 1px solid #ccc;
-  padding: 8px;
+  padding: 12px;
   text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
 }
 
 th {
-  background-color: #f2f2f2;
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #444;
+}
+
+tr:hover {
+  background: #fafafa;
 }
 
 /* Delete button */
 .delete-btn {
-  background-color: #ff4d4d; /* background color */
-  color: white; /* text color */
-  border: none; /* remove border */
-  padding: 5px 10px; /* space inside button */
-  border-radius: 5px; /* rounded corners */
-  cursor: pointer; /* pointer on hover */
+  background-color: #ff4d4d;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
 }
 
 .delete-btn:hover {
-  background-color: #e60000; /* darker red on hover */
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+/* Form grid alignment */
+.form-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* label - input */
+  gap: 12px 16px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+/* Each label-input pair */
+.form-group {
+  display: contents;
+}
+
+.form-group label {
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Inputs, selects */
+.form-group input,
+.form-group select {
+  padding: 8px;
+  width: 60%;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Error messages align under inputs */
+.errorMsg {
+  grid-column: 2 / 3;
+  color: red;
+  font-size: 0.85em;
+}
+
+.successMsg {
+  color: rgb(5, 105, 14);
+  grid-column: 2 / 3;
+}
+
+/* Actions*/
+.form-actions {
+  grid-column: 1 / 3; /* span across both columns */
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Confirmation Box */
+.confirm-box {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-actions button {
+  margin-bottom: 6px; /* space between button and success msg */
+}
+
+.confirm-content {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  animation: popIn 0.3s ease;
+}
+
+.confirm-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.btn-yes {
+  background-color: #e63946;
+}
+
+.btn-no {
+  background-color: #6c757d;
+}
+
+.btn-yes,
+.btn-no {
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn-yes:hover {
+  background-color: #b91c1c;
+}
+
+.btn-no:hover {
+  background-color: #495057;
+}
+
+/* animation for confirm box */
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

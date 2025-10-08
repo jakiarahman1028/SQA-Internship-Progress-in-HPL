@@ -1,0 +1,46 @@
+TC ID,Test Case Description,Test Data,Precondition,Steps,Expected Result,Actual Result ,Severity,Status in Current Version,Remarks
+TC-GEO-001,"Verify submitting Geofence 
+without a name",Geofence Name = Blank,"Logged in as MR
+Submarket exists","1. Open Submarket module
+2. Select Submarket
+3. Click “Geofence Points of This Submarket”
+4. Click “+” Icon
+5. Leave Geofence Name blank
+6. Select Doctor
+7. Tap Set Location",Error shown: “Please Enter Geofence Name”,Error shown: “Please Enter Geofence Name”,High,Pass,-
+TC-GEO-002,"Verify submitting Geofence 
+without selecting Doctor","Geofence Name = Test
+Doctor = None","Logged in as MR
+Submarket exists","1. Enter Geofence Name
+2. Do not select Doctor
+3. Tap Set Location",Error shown: “Please Select a Doctor”,Error shown: “Please Select a Doctor”,High,Pass,-
+TC-GEO-003,Verify submitting Geofence  selecting multiple Doctor,"Geofence Name = Test
+Doctor = Multiple","Logged in as MR
+Submarket exists","1. Enter Geofence Name
+2. Select multiple Doctors
+3. Tap Set Location",Geofence created successfully with multiple Doctors,Geofence created successfully with multiple Doctors,High,Pass,-
+TC-GEO-004,Verify Pending ? Approval workflow,Submitted Geofence,Geofence submitted and in Pending List,"1. Submit Geofence 
+2. Check Pending list 
+3. Supervisor approves","Geofence disappears from Pending list, moves to Active list",Shows on Active List after Supervisors Approval,High,Yet to be Tested,-
+TC-GEO-005,Verify Geofence triggers only after Check-In,"Active Geofence, location mapped",MR inside Geofence radius,"1. Go near Geofence area 
+2. Without Check-In ? verify 
+3. With Check-In ? verify",Geofence triggers only after Check-In,"1. Geofence triggers only after Check-In
+2. Shows Notification - ""Geofence Entry Detected"".
+3. Pulse App Running in Background.",High,Yet to be Tested,-
+TC-GEO-006,"Verify Geofence record logging 
+(Geofence Code/entry/exit/time/location)",Active Geofence,Geofence triggered at least once,"1. Open Geofence Record menu 
+2. Select Date 
+3. Tap Apply","Entry, Exit, Time, Location logs shown for selected date","Entry, Exit, Time, Location logs shown for selected date.",High,Yet to be Tested,-
+TC-GEO-007,Verify map view options,Active Geofence,Geofence available,"1. Open Active Geofence 
+2. Tap View on App Map 
+3. Tap View on Google Map",Both maps display correct location,Both maps display correct location.,High,Yet to be Tested,-
+TC-GEO-008,Verify Geofence does not trigger when Location/Internet is OFF,Active Geofence,Location/Internet disabled,"1. Turn off Location/Internet
+2. Go near Geofence area
+3. Try Check-In",Geofence should not trigger. Error message: “Enable Location & Internet”,Geofence don't trigger without internet,High,Yet to be Tested,-
+TC-GEO-009,Verify geofence notification does not trigger without check-in,"Location: ON
+Internet: ON
+Check-In: NO","User logged in, not checked in","1. Ensure user is logged in but does not perform check-in
+2. Visit assigned geofence location",Geofence should not trigger unless check-in is completed first,Geofence notification triggered even without check-in,High,Pass,-
+TC-GEO-010,Verify indication of active geofences in Submarket list,Submarkets assigned with geofence,"MR logged in, geofence created","1. Navigate to Submarkets list
+2. Check geofence tags/status
+3. Compare with active geofence list",Submarkets with active geofence should show correct “Geofence Covered” tag,Submarkets show tag “Geofence Covered” but no active geofence is visible on respective submarkets,High,Fail,-

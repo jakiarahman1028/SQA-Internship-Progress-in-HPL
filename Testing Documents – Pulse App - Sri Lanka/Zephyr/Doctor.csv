@@ -1,0 +1,27 @@
+TC ID,Test Case Description,Test Data,Precondition,Steps,Expected Result,Actual Result ,Severity,Status in Current Version,Remarks
+TC-DOC-001,Add a new doctor,"1. Basic Info
+2. Medical Info
+3. Target Brands
+4. Image
+5. Summary",User logged in and on Doctor Management Screen,"1. Click ""Add Doctor""
+2. Fill data
+3. Click Save",Doctor is saved and visible in list,"Doctor could not be added, showing ""Something went wrong""",High,Fail,-
+TC-DOC-002,Mark doctor as inactive,1. Dr. Samantha,Doctor exists and active,"1. Select doctor
+2. Click ""Inactive""
+3. Confirm",Doctor status changes to Inactive and not selectable in DCR/Tour Plan,"Doctor status changed to Inactive, gone from active doctor list, not selectable in DCR/Tour Plan",High,Pass,Works as expected.
+TC-DOC-003,Edit doctor details,1. Change any details,Doctor exists and active,"1. Select doctor
+2. Click Edit
+3. Modify contact
+4. Save",Updated details visible in submitted doctor list.,"Doctor list updated; edited doctor moved to ""Pending Doctor List"" for supervisor approval",High,Pass,Works as expected.
+TC-DOC-004,Transfer doctor to another submarket,"1. Doctor
+2. Submarket",Doctor exists and active,"1. Select doctor
+2. Click ""Transfer""
+3. Select new submarket
+4. Save",Doctor assigned to new submarket; reflected in relevant modules,"Doctor list refreshed, doctor shifted to ""Pending Doctor List"" for approval",High,Pass,Works as expected.
+TC-DOC-005,Active Doctor List Shows All Doctors Together/ Sub- Market Wise Filtering,Active Doctor List of All Sub-Market,Logged in as MR,Open Active Doctors list ?  Refresh,"1. All doctors of MR?s submarket appear
+2. Clicking respective Submarket shows only their doctors
+3. Refresh works correctly","1. All doctors initially shown
+2. Click another Submarket
+3. Correct filtered doctors shown
+4. Refresh still shows all doctors again of all submarkets even though filter is applied",Medium,Fail,"Refresh still shows all doctors again of all 
+submarkets even though filter is applied"

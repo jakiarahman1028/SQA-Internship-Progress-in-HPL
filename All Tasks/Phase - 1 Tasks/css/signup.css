@@ -1,6 +1,6 @@
 body {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: #f0f0f0;
+  background-color: #e5f8e3;
 }
 
 h2 {
@@ -9,11 +9,12 @@ h2 {
 }
 
 form {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   width: 300px;
   margin: 50px auto;
+  border-color: rgb(2, 8, 6);
 }
 
 input {
@@ -29,7 +30,7 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #16911a;
   color: white;
   border: none;
   border-radius: 5px;
@@ -38,7 +39,7 @@ button {
 }
 
 button:hover {
-  background-color: #04c50e;
+  background-color: #18ec23;
 }
 
 .error-msg {

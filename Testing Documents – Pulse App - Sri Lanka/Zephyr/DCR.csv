@@ -1,0 +1,17 @@
+TC ID,Test Case Description,Test Data,Precondition,Steps,Expected Result,Actual Result,Severity,Status in Current Version,Remarks
+TC-DCR-001,Verify successful DCR creation,"Doctor: Dr. Silva 
+Location: HQ
+Shift: Morning",MR logged in,"1. Navigate to DCR module 
+2. Click ?+? to create DCR 
+3. Select Doctor, Submarket, Session 
+4. Add notes/remarks 
+5. Save and Submit",DCR created successfully and visible in Submitted List,DCR created successfully and visible in Submitted List,High,Pass,
+TC-DCR-002,Verify saving DCR as Draft,"Doctor: Dr. Silva 
+Location: HQ
+Shift: Morning",MR logged in,"1. Create DCR 
+2. Click ?Draft?",DCR saved in Draft List,DCR saved in Draft List,High,Pass,
+TC-DCR-003,Verify editing a DCR from Draft removes it from Draft List after edit,DCR exists in Draft List,MR logged in,"1. Open DCR from Draft List 
+2. Edit any details
+ 3. Save changes",Edited DCR removed from Draft List and appears in Submitted List only,Edited DCR still shows in Draft List and Submitted List,High,Fail,Issue: DCR remains in Draft List after editing; system bug
+TC-DCR-004,Verify submitting a DCR directly from Draft List without editing,DCR exists in Draft List,MR logged in,"1. Open DCR from Draft List 
+2. Click Submit without editing",DCR removed from Draft List and appears in Submitted List,DCR disappears from Draft List and showing in submitted list,High,Pass,
