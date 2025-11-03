@@ -1,0 +1,12 @@
+{
+  "name": "ostad",
+  "version": "1.0.0",
+  "description": "automation framework with playwright",
+  "license": "ISC",
+  "author": "jakia_rahman",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
